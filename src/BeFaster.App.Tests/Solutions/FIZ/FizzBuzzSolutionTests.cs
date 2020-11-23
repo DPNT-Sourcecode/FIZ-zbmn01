@@ -41,13 +41,13 @@ namespace BeFaster.App.Tests.Solutions.FIZ
         [TestCase(43, ExpectedResult = "fizz")]
         [TestCase(44, ExpectedResult = "44")]
         [TestCase(45, ExpectedResult = "fizz buzz fake deluxe")]
-        [TestCase(50, ExpectedResult = "buzz")]
+        [TestCase(50, ExpectedResult = "buzz deluxe")]
         [TestCase(51, ExpectedResult = "fizz buzz")]
         [TestCase(52, ExpectedResult = "buzz")]
         [TestCase(53, ExpectedResult = "fizz buzz")]
         [TestCase(54, ExpectedResult = "fizz buzz")]
         [TestCase(55, ExpectedResult = "buzz fake deluxe")]
-        [TestCase(63, ExpectedResult = "fizz deluxe")]
+        [TestCase(63, ExpectedResult = "fizz fake deluxe")]
         [TestCase(555, ExpectedResult = "fizz buzz fake deluxe")]
         [TestCase(566, ExpectedResult = "buzz")]
         [TestCase(666, ExpectedResult = "fizz")]
@@ -59,6 +59,7 @@ namespace BeFaster.App.Tests.Solutions.FIZ
         }
     }
 }
+
 
 
 
