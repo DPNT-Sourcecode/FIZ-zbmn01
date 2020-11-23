@@ -28,6 +28,11 @@ namespace BeFaster.App.Solutions.FIZ
             return number % 5 == 0 || $"{number}".Contains("5");
         }
 
+        private static bool IsFake(int number)
+        {
+            return number % 2 == 1;
+        }
+
         private static bool IsDeluxe(int number)
         {
             if(number < 10)
@@ -58,11 +63,16 @@ namespace BeFaster.App.Solutions.FIZ
             }
             if (IsDeluxe(number))
             {
+                if (IsFake(number))
+                {
+                    list.Add("fake");
+                }
                 list.Add("deluxe");
             }
             return list;
         }
     }
 }
+
 
 
