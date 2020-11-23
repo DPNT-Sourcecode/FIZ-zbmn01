@@ -28,6 +28,23 @@ namespace BeFaster.App.Solutions.FIZ
             return number % 5 == 0 || $"{number}".Contains("5");
         }
 
+        private static bool IsDeluxe(int number)
+        {
+            if(number < 10)
+            {
+                return false;
+            }
+            var asString = number.ToString();
+            for(int i=2; i < asString.Length; i++)
+            {
+                if(asString[i] != asString[i-1])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private static List<string> GetSpecials(int number)
         {
             var list = new List<string>();
@@ -39,7 +56,12 @@ namespace BeFaster.App.Solutions.FIZ
             {
                 list.Add("buzz");
             }
+            if (IsDeluxe(number))
+            {
+                list.Add("deluxe");
+            }
             return list;
         }
     }
 }
+
