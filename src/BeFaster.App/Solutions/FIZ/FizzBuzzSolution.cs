@@ -26,14 +26,15 @@ namespace BeFaster.App.Solutions.FIZ
 
         private static bool IsFizz(int number)
         {
-            return number % 3 == 0;
+            return number % 3 == 0 || $"{number}".Contains("3");
         }
 
         private static bool IsBuzz(int number)
         {
-            return number % 5 == 0;
+            return number % 5 == 0 || $"{number}".Contains("5");
         }
     }
 }
+
 
 
