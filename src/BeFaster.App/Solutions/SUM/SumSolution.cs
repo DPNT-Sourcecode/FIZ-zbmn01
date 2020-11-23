@@ -6,8 +6,9 @@ namespace BeFaster.App.Solutions.SUM
     {
         public static int Sum(int x, int y)
         {
-            return 2;
+            return x + y;
         }
     }
 }
+
 
