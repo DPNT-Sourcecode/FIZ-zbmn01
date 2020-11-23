@@ -18,14 +18,22 @@ namespace BeFaster.App.Solutions.FIZ
             }
         }
 
-        private static bool IsFizz(int number)
+        private static bool IsFizz(int number, out bool isDeluxe)
         {
-            return number % 3 == 0 || $"{number}".Contains("3");
+            return IsSpecial(number, 3, out isDeluxe);
         }
 
-        private static bool IsBuzz(int number)
+        private static bool IsBuzz(int number, out bool isDeluxe)
         {
-            return number % 5 == 0 || $"{number}".Contains("5");
+            return IsSpecial(number, 5, out isDeluxe);
+        }
+
+        private static bool IsSpecial(int number, int factor, out bool isDeluxe)
+        {
+            bool divides = number % factor == 0;
+            bool contains = $"{number}".Contains($"{factor}");
+            isDeluxe = divides && contains;
+            return divides || contains;
         }
 
         private static bool IsFake(int number)
@@ -33,7 +41,7 @@ namespace BeFaster.App.Solutions.FIZ
             return number % 2 == 1;
         }
 
-        private static bool IsDeluxe(int number)
+        private static bool IsOldDeluxe(int number)
         {
             if(number < 10)
             {
@@ -52,16 +60,17 @@ namespace BeFaster.App.Solutions.FIZ
 
         private static List<string> GetSpecials(int number)
         {
+            bool isDeluxe3, isDeluxe5;
             var list = new List<string>();
-            if(IsFizz(number))
+            if(IsFizz(number, out isDeluxe3))
             {
                 list.Add("fizz");
             }
-            if(IsBuzz(number))
+            if(IsBuzz(number, out isDeluxe5))
             {
                 list.Add("buzz");
             }
-            if (IsDeluxe(number))
+            if (isDeluxe3 || isDeluxe5)
             {
                 if (IsFake(number))
                 {
@@ -73,6 +82,7 @@ namespace BeFaster.App.Solutions.FIZ
         }
     }
 }
+
 
 
 
