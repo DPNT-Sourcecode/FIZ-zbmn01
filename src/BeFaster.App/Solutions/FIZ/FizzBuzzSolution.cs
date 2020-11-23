@@ -35,7 +35,7 @@ namespace BeFaster.App.Solutions.FIZ
                 return false;
             }
             var asString = number.ToString();
-            for(int i=2; i < asString.Length; i++)
+            for(int i = 1; i < asString.Length; i++)
             {
                 if(asString[i] != asString[i-1])
                 {
@@ -64,4 +64,5 @@ namespace BeFaster.App.Solutions.FIZ
         }
     }
 }
+
 
