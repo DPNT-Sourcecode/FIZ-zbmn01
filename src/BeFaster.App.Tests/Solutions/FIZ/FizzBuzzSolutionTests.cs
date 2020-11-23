@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using BeFaster.App.Solutions.FIZ;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,23 +29,9 @@ namespace BeFaster.App.Tests.Solutions.FIZ
         [TestCase(15, ExpectedResult = "fizz buzz")]
         public string TestFizzBuzz(int number)
         {
-            if (number % 15 == 0)
-            {
-                return "fizz buzz";
-            }
-            else if (number % 3 == 0)
-            {
-                return "fizz";
-            }
-            else if (number % 5 == 0)
-            {
-                return "buzz";
-            }
-            else
-            {
-                return number.ToString();
-            }
+            return FizzBuzzSolution.FizzBuzz(number);
         }
     }
 }
+
 
