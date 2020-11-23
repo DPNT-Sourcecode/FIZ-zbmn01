@@ -6,15 +6,15 @@ namespace BeFaster.App.Solutions.FIZ
     {
         public static string FizzBuzz(int number)
         {
-            if (number % 15 == 0)
+            if (IsFizz(number) && IsBuzz(number))
             {
                 return "fizz buzz";
             }
-            else if (number % 3 == 0)
+            else if (IsFizz(number))
             {
                 return "fizz";
             }
-            else if (number % 5 == 0)
+            else if (IsBuzz(number))
             {
                 return "buzz";
             }
@@ -23,6 +23,17 @@ namespace BeFaster.App.Solutions.FIZ
                 return number.ToString();
             }
         }
+
+        private static bool IsFizz(int number)
+        {
+            return number % 3 == 0;
+        }
+
+        private static bool IsBuzz(int number)
+        {
+            return number % 5 == 0;
+        }
     }
 }
+
 
