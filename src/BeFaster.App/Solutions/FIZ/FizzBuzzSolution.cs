@@ -1,4 +1,5 @@
 ﻿using BeFaster.Runner.Exceptions;
+using System.Collections.Generic;
 
 namespace BeFaster.App.Solutions.FIZ
 {
@@ -6,17 +7,10 @@ namespace BeFaster.App.Solutions.FIZ
     {
         public static string FizzBuzz(int number)
         {
-            if (IsFizz(number) && IsBuzz(number))
+            var specials = GetSpecials(number);
+            if(specials.Count > 0)
             {
-                return "fizz buzz";
-            }
-            else if (IsFizz(number))
-            {
-                return "fizz";
-            }
-            else if (IsBuzz(number))
-            {
-                return "buzz";
+                return string.Join(" ", specials.ToArray());
             }
             else
             {
@@ -33,8 +27,19 @@ namespace BeFaster.App.Solutions.FIZ
         {
             return number % 5 == 0 || $"{number}".Contains("5");
         }
+
+        private static List<string> GetSpecials(int number)
+        {
+            var list = new List<string>();
+            if(IsFizz(number))
+            {
+                list.Add("fizz");
+            }
+            if(IsBuzz(number))
+            {
+                list.Add("buzz");
+            }
+            return list;
+        }
     }
 }
-
-
-
